@@ -10,7 +10,10 @@ execute store result score #query_time ops.sleep run time query daytime
 
 execute as @a store result score @s ops.sleep run data get entity @s SleepTimer
 execute as @a[scores={ops.sleep=1}] run scoreboard players enable @a ops.kickBed
-execute as @a[scores={ops.sleep=1}] run function ops:message
+
+# If you want one of many messages, then use ops:message.
+# However, if you just want one simple message, use ops:1message
+execute as @a[scores={ops.sleep=1}] run function ops:1message
 
 # Change the line below to pass the night faster by adding more time
 execute as @a[scores={ops.sleep=100}] run time add 40
